@@ -1,27 +1,22 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState,  } from "react";
 
 
 
-function App({authorized}) {
-  const [emotion, setEmotion] = useState("HAPPY");
-  const [secondary, setSecondary] = useState("tired");
-  useEffect(() => {
-  console.log(`its ${emotion} around here!`);
-  }, [emotion]);
+function App() {
+ const [checked, setChecked] = useState(false);
 
-
-  useEffect(() => {
-    console.log(`its ${secondary} around here!`);
-    },[secondary]);
+ function toogle(){
+  setChecked((checked) => !checked)
+ }
 
 return(
   <>
-<h1>Current emtion is {emotion} and {secondary}</h1>  
-<button onClick={()=> setEmotion("Happy")}>Happy</button>
-<button onClick={()=> setSecondary("crabby")}>make crabby</button>
-<button onClick={()=> setEmotion("frustrated")}>frustrated</button>
-<button onClick={()=> setEmotion("enthusiastic")}>enthusiastic</button>
+  <input type="checkbox"
+   value={checked}
+    onChange={toogle} 
+    />
+    <p>{checked ? "checked" : "not checked"}</p>
 </>
 )
   
